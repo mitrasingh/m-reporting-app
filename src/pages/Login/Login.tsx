@@ -1,5 +1,6 @@
 import { Container, Row, Col, Card, Button, Form } from "react-bootstrap";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { toast } from "react-hot-toast";
 
 type FormValues = {
 	email: string;
@@ -23,12 +24,7 @@ const Login = () => {
 	const onSubmit: SubmitHandler<FormValues> = (data) => {
 		console.log("submitted");
 		console.log(data.email, data.password);
-	};
-
-	const testRegister = () => {
-		console.log(
-			"register user, this may button may not stay, refer to Anthony"
-		);
+		toast.success("You are logged in!");
 	};
 
 	return (
@@ -79,18 +75,10 @@ const Login = () => {
 									<p className="mt-2">{errors.password?.message}</p>
 								</Form.Group>
 								<Row>
-									<Col className="d-flex justify-content-end">
-										<Button
-											variant="secondary"
-											size="sm"
-											className="fw-bold text-light fs-6"
-											onClick={testRegister}
-										>
-											Register
-										</Button>
+									<Col className="d-flex justify-content-center">
 										<Button
 											variant="primary"
-											className="ms-2 fw-bold text-light fs-6"
+											className="px-4 mt-2 fw-bold text-light fs-6"
 											size="sm"
 											type="submit"
 										>
