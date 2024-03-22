@@ -1,4 +1,4 @@
-import { Container, Row, Col, Card, Button, Form } from "react-bootstrap";
+// import { Container, Row, Col, Card, Button, Form } from "react-bootstrap";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { toast } from "react-hot-toast";
 
@@ -28,70 +28,57 @@ const Login = () => {
 	};
 
 	return (
-		<Container>
-			<Col lg={{ span: 9, offset: 2 }} style={containerStyle}>
-				<Card className="p-4">
-					<Row>
-						<Col>
-							<div className="pb-4 text-center">
-								<h6>Welcome to</h6>
-								<h2 className="fw-bold text-primary">M-Reporting</h2>
-							</div>
-							<Form onSubmit={handleSubmit(onSubmit)} noValidate>
-								<Form.Group className="mb-4">
-									<Form.Label>Email</Form.Label>
-									<Form.Control
-										className="shadow-none fs-6"
-										type="text"
-										autoComplete="email"
-										placeholder="Enter email"
-										{...register("email", {
-											required: {
-												value: true,
-												message: "Email is required!",
-											},
-											pattern: {
-												value: emailRegex,
-												message: "Invalid email format!",
-											},
-										})}
-									/>
-									<p className="mt-2">{errors.email?.message}</p>
-								</Form.Group>
-
-								<Form.Group className="mb-3">
-									<Form.Label>Password</Form.Label>
-									<Form.Control
-										className="shadow-none fs-6"
-										type="password"
-										placeholder="Enter password"
-										{...register("password", {
-											required: {
-												value: true,
-												message: "Password is required!",
-											},
-										})}
-									/>
-									<p className="mt-2">{errors.password?.message}</p>
-								</Form.Group>
-								<Row>
-									<Col className="d-flex justify-content-center">
-										<Button
-											variant="primary"
-											className="px-4 mt-2 fw-bold text-light fs-6"
-											size="sm"
-											type="submit"
-										>
-											Login
-										</Button>
-									</Col>
-								</Row>
-							</Form>
-						</Col>
-					</Row>
-				</Card>
-			</Col>
-		</Container>
+		<div className="container py-4" style={containerStyle}>
+			<div className="row">
+				<div className="col">
+					<div className="pb-4 text-center">
+						<h6>Welcome to</h6>
+						<h2 className="fw-bold text-primary">M-Reporting</h2>
+					</div>
+					<form onSubmit={handleSubmit(onSubmit)} noValidate>
+						<div className="mb-4">
+							<label className="form-label">Email</label>
+							<input
+								className="form-control"
+								type="text"
+								placeholder="Enter Email"
+								{...register("email", {
+									required: {
+										value: true,
+										message: "Email is required!",
+									},
+									pattern: {
+										value: emailRegex,
+										message: "Invalid email format!",
+									},
+								})}
+							/>
+							<div className="mt-2">{errors.email?.message}</div>
+						</div>
+						<div className="mb-3">
+							<label className="form-label">Password</label>
+							<input
+								className="form-control"
+								type="password"
+								placeholder="Enter password"
+								{...register("password", {
+									required: {
+										value: true,
+										message: "Password is required!",
+									},
+								})}
+							/>
+							<div className="mt-2">{errors.password?.message}</div>
+						</div>
+						<div className="d-grid gap-2 d-md-flex justify-content-md-end">
+							<button className="btn btn-primary btn-sm" type="submit">
+								Login
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 	);
 };
 
