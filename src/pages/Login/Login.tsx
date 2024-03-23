@@ -27,7 +27,7 @@ const Login = () => {
 	};
 
 	return (
-		<div className="container py-4" style={containerStyle}>
+		<div className="container p-4" style={containerStyle}>
 			<div className="row">
 				<div className="col">
 					<div className="pb-4 text-center">
