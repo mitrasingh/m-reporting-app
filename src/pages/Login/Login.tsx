@@ -49,10 +49,13 @@ const Login = () => {
 					</div>
 					<form onSubmit={handleSubmit(onSubmit)} noValidate>
 						<div className="mb-4">
-							<label className="form-label">Email</label>
+							<label className="form-label" htmlFor="email">
+								Email
+							</label>
 							<input
 								className="form-control"
-								type="text"
+								id="email"
+								type="email"
 								placeholder="Enter Email"
 								{...register("email", {
 									required: {
@@ -68,9 +71,12 @@ const Login = () => {
 							<div className="mt-2">{errors.email?.message}</div>
 						</div>
 						<div className="mb-3">
-							<label className="form-label">Password</label>
+							<label className="form-label" htmlFor="password">
+								Password
+							</label>
 							<input
 								className="form-control"
+								id="password"
 								type="password"
 								placeholder="Enter password"
 								{...register("password", {
